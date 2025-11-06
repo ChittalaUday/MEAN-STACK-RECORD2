@@ -6,12 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductService {
-  private jsonUrl = '/assets/products.json';
+  // ✅ Public API for product data
+  private apiUrl = 'https://fakestoreapi.com/products';
 
   constructor(private http: HttpClient) {}
 
-  // Method to fetch products
+  // Method to fetch products from API
   getProducts(): Observable<any[]> {
-    return this.http.get<any[]>(this.jsonUrl);
+    return this.http.get<any[]>(this.apiUrl);
   }
 }
